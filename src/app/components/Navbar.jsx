@@ -1,4 +1,5 @@
 // components/Navbar.js
+'use client'
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -17,10 +18,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+    <nav className={`fixed top-0 left-0 font-[IntegralCF] right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-white shadow-md py-4' : 'bg-white shadow-md py-4'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -43,29 +44,29 @@ export default function Navbar() {
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex  items-center space-x-8">
             <Link href="/past-papers">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-yellow-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
                 Past Papers
               </span>
             </Link>
             <Link href="/schools">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-yellow-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
                 Schools
               </span>
             </Link>
             <Link href="/flashcards">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-yellow-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
                 Flashcards
               </span>
             </Link>
             <Link href="/question-bank">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-yellow-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
                 Question Bank
               </span>
             </Link>
             <Link href="/videos" className="font-bold">
-              <span className={`${isScrolled ? 'text-indigo-600' : 'text-yellow-400'} font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-medium transition-colors`}>
                 Videos
               </span>
             </Link>
@@ -74,29 +75,29 @@ export default function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/login">
-              <span className={`${isScrolled ? 'text-indigo-600' : 'text-white'} font-bold transition-colors`}>
+              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-bold transition-colors`}>
                 Log in
               </span>
             </Link>
             <Link href="/signup">
-              <button className="bg-yellow-400 hover:bg-yellow-300 text-indigo-900 font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105">
+              <button className="bg-blue-400 font-[IntegralCF] hover:bg-blue-300 text-indigo-900 font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105">
                 Sign Up Free
               </button>
             </Link>
           </div>
           
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex  items-center">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`${isScrolled ? 'text-gray-800' : 'text-white'} focus:outline-none`}
             >
               {isMobileMenuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="black">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="black">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
               )}
@@ -141,7 +142,7 @@ export default function Navbar() {
                 </span>
               </Link>
               <Link href="/signup">
-                <button className="bg-yellow-400 hover:bg-yellow-300 text-indigo-900 font-bold py-3 px-6 rounded-lg w-full">
+                <button className="bg-blue-400 hover:bg-blue-300 text-indigo-900 font-bold py-3 px-6 rounded-lg w-full">
                   Sign Up Free
                 </button>
               </Link>
