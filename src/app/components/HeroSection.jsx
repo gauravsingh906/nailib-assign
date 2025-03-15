@@ -436,11 +436,11 @@ export default function HeroSection() {
         <div className="glowing-orb absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-gradient-to-r from-blue-100 to-indigo-200 opacity-0 blur-md"></div>
       </div>
  
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side content */}
           <div className="z-10">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 shadow-sm rounded-full mb-6 border border-blue-100 backdrop-blur-sm">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-blue-50 to-indigo-50 shadow-sm rounded-full mb-2 border border-blue-100 backdrop-blur-sm">
               <span className="text-blue-700 font-semibold text-sm flex items-center">
                 <span className="w-2 h-2 bg-blue-500 rounded-full mr-2 animate-pulse"></span>
                 NEW: Interactive Video Learning
