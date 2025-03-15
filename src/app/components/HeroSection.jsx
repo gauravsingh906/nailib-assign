@@ -436,7 +436,7 @@ export default function HeroSection() {
         <div className="glowing-orb absolute top-1/3 right-1/3 w-12 h-12 rounded-full bg-gradient-to-r from-blue-100 to-indigo-200 opacity-0 blur-md"></div>
       </div>
  
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left side content */}
           <div className="z-10">
