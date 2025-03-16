@@ -408,7 +408,7 @@ export default function HeroSection() {
           <div 
             className="absolute inset-0 opacity-20"
             style={{
-              backgroundImage: 'linear-gradient(to right, #c1d3fa 1px, transparent 1px), linear-gradient(to bottom, #c1d3fa 1px, transparent 1px)',
+              backgroundImage: 'linear-gradient(to right,rgb(57, 96, 181) 1px, transparent 1px), linear-gradient(to bottom,rgb(47, 79, 150) 1px, transparent 1px)',
               backgroundSize: '50px 50px',
               
             }}
