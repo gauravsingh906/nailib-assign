@@ -192,7 +192,7 @@ export default function TestimonialSection() {
           </p>
         </div>
 
-        <div className="relative mt-12 min-h-[400px]">
+        <div className="relative mt-12 min-h-[500px] overflow-x-scroll">
           {testimonials.map((testimonial, index) => (
             <div 
               id={`testimonial-${index}`}

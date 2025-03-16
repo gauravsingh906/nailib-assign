@@ -138,7 +138,7 @@ const VideoSection = () => {
   const filteredVideos = activeTab === 'all' ? videos : videos.filter(video => video.subject.toLowerCase() === activeTab);
   
   useEffect(() => {
-    // Animation would be implemented here in production
+    
     if (sectionRef.current) {
       // Animation for section entry
     }
@@ -147,12 +147,12 @@ const VideoSection = () => {
   const handleVideoSelect = (video) => {
     setActiveVideo(video);
     setIsPlaying(true);
-    // In production, this would trigger the video to play
+    //this would trigger the video to play
   };
   
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
-    // In production, this would control the video playback
+    // this would control the video playback
   };
   
   return (
