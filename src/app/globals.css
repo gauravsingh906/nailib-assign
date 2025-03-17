@@ -1,13 +1,13 @@
-/* styles/globals.css */
+
 @reference "tailwindcss/theme.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Import custom fonts */
+
 @font-face {
   font-family: 'IntegralCF';
-  src: url('/fonts/IntegralCF-Regular.woff2') format('woff2');
+  src: url('/fonts/integralCF/IntegralCF-Regular.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
@@ -15,13 +15,27 @@
 
 @font-face {
   font-family: 'IntegralCF';
-  src: url('/fonts/IntegralCF-Bold.woff2') format('woff2');
+  src: url('/fonts/integralCF/IntegralCF-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open_Sans';
+  src: url('/fonts/openSans/reqular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open_Sans';
+  src: url('/fonts/openSans/bold.woff2') format('woff2');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
-/* Custom animations */
+
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -38,7 +52,7 @@
   animation: float 3s ease-in-out infinite;
 }
 
-/* Smooth scrolling */
+
 html {
   scroll-behavior: smooth;
 }

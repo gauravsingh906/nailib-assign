@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -118,9 +117,9 @@ export default function FeaturesSection() {
   return (
     <section 
       ref={featuresRef} 
-      className="py-24 font-[IntegralCF] px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden font-['Open_Sans']"
     >
-      {/* Background decorative elements */}
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-0 w-full h-4 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-50"></div>
         <div className="absolute top-0 right-0 w-72 h-72 bg-indigo-100 rounded-full transform translate-x-1/3 -translate-y-1/3 opacity-30 blur-3xl"></div>
@@ -138,10 +137,10 @@ export default function FeaturesSection() {
           <span className="inline-block px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-bold tracking-wider uppercase mb-4">
             Elevate Your IB Experience
           </span>
-          <h2 className="font-[IntegralCF] text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="font-['IntegralCF'] text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             Why Nailib Videos <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">Make a Difference</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-['Open_Sans']">
             Our video resources are designed specifically for IB students to optimize learning and maximize scores—see what sets us apart.
           </p>
         </div>
@@ -152,7 +151,7 @@ export default function FeaturesSection() {
               key={index} 
               className="feature-item bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
             >
-              {/* Highlight border */}
+           
               <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${feature.color} transform origin-left transition-transform duration-300 scale-x-0 group-hover:scale-x-100`}></div>
               
               {/* Icon with gradient background */}
@@ -163,15 +162,15 @@ export default function FeaturesSection() {
                 </div>
               </div>
               
-              <h3 className="font-[IntegralCF] text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
+              <h3 className="font-['IntegralCF'] text-xl font-bold text-gray-900 mb-3 group-hover:text-indigo-600 transition-colors duration-300">
                 {feature.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 font-['Open_Sans']">
                 {feature.description}
               </p>
               
               {/* Visual indicator */}
-              <div className="mt-6 flex items-center text-indigo-600 font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+              <div className="mt-6 flex items-center text-indigo-600 font-medium opacity-0 transform translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 font-['Open_Sans']">
                 <span className="mr-2">Learn more</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -183,8 +182,8 @@ export default function FeaturesSection() {
         
         {/* Bottom CTA */}
         <div className="mt-16 text-center">
-          <p className="text-gray-700 mb-4">Experience the difference for yourself</p>
-          <button className="bg-indigo-600 font-[IntegralCF] hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-md hover:shadow-lg hover:shadow-indigo-100">
+          <p className="text-gray-700 mb-4 font-['Open_Sans']">Experience the difference for yourself</p>
+          <button className="bg-indigo-600 hover:bg-indigo-700 text-white py-3 px-8 rounded-xl transition-all shadow-md hover:shadow-lg hover:shadow-indigo-100 font-['IntegralCF'] font-bold">
             Explore Our Video Library
           </button>
         </div>

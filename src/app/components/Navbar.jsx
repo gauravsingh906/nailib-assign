@@ -18,7 +18,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav className={`fixed top-0 left-0 font-[IntegralCF] right-0 z-50 transition-all duration-300 ${
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white shadow-md py-4' : 'bg-white shadow-md py-4'
     }`}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -29,44 +29,43 @@ export default function Navbar() {
               <div className="flex items-center cursor-pointer">
                 <div className="relative h-10 w-32">
                   {/* Replace with actual Nailib logo */}
-                  <div className="bg-white  rounded-lg inline-flex">
-      <Image
-        alt="Nail IB's App Icon"
-        width={40}
-        height={40}
-        src="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=256&q=75"
-      />
-    </div>
-
+                  <div className="bg-white rounded-lg inline-flex">
+                    <Image
+                      alt="Nail IB's App Icon"
+                      width={40}
+                      height={40}
+                      src="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=256&q=75"
+                    />
+                  </div>
                 </div>
               </div>
             </Link>
           </div>
           
           {/* Desktop Navigation */}
-          <div className="hidden md:flex  items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <Link href="/past-papers">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors font-[Open_Sans]`}>
                 Past Papers
               </span>
             </Link>
             <Link href="/schools">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors font-[Open_Sans]`}>
                 Schools
               </span>
             </Link>
             <Link href="/flashcards">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors font-[Open_Sans]`}>
                 Flashcards
               </span>
             </Link>
             <Link href="/question-bank">
-              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-gray-800' : 'text-gray-800'} hover:text-blue-400 font-medium transition-colors font-[Open_Sans]`}>
                 Question Bank
               </span>
             </Link>
             <Link href="/videos" className="font-bold">
-              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-medium transition-colors`}>
+              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-medium transition-colors font-[Open_Sans]`}>
                 Videos
               </span>
             </Link>
@@ -75,19 +74,19 @@ export default function Navbar() {
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/login">
-              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-bold transition-colors`}>
+              <span className={`${isScrolled ? 'text-indigo-600' : 'text-indigo-600'} font-bold transition-colors font-[IntegralCF]`}>
                 Log in
               </span>
             </Link>
             <Link href="/signup">
-              <button className="bg-blue-400 font-[IntegralCF] hover:bg-blue-300 text-indigo-900 font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105">
+              <button className="bg-blue-400 hover:bg-blue-300 text-indigo-900 font-bold py-2 px-6 rounded-lg transition-all transform hover:scale-105 font-[IntegralCF]">
                 Sign Up Free
               </button>
             </Link>
           </div>
           
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex  items-center">
+          <div className="md:hidden flex items-center">
             <button 
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className={`${isScrolled ? 'text-gray-800' : 'text-white'} focus:outline-none`}
@@ -111,38 +110,38 @@ export default function Navbar() {
         <div className="md:hidden bg-white shadow-xl p-4">
           <div className="flex flex-col space-y-4">
             <Link href="/past-papers">
-              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2">
+              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2 font-[Open_Sans]">
                 Past Papers
               </span>
             </Link>
             <Link href="/schools">
-              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2">
+              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2 font-[Open_Sans]">
                 Schools
               </span>
             </Link>
             <Link href="/flashcards">
-              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2">
+              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2 font-[Open_Sans]">
                 Flashcards
               </span>
             </Link>
             <Link href="/question-bank">
-              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2">
+              <span className="text-gray-800 hover:text-indigo-600 font-medium block py-2 font-[Open_Sans]">
                 Question Bank
               </span>
             </Link>
             <Link href="/videos">
-              <span className="text-indigo-600 font-bold block py-2">
+              <span className="text-indigo-600 font-bold block py-2 font-[Open_Sans]">
                 Videos
               </span>
             </Link>
             <div className="pt-4 flex flex-col space-y-4">
               <Link href="/login">
-                <span className="text-indigo-600 font-bold block py-2">
+                <span className="text-indigo-600 font-bold block py-2 font-[IntegralCF]">
                   Log in
                 </span>
               </Link>
               <Link href="/signup">
-                <button className="bg-blue-400 hover:bg-blue-300 text-indigo-900 font-bold py-3 px-6 rounded-lg w-full">
+                <button className="bg-blue-400 hover:bg-blue-300 text-indigo-900 font-bold py-3 px-6 rounded-lg w-full font-[IntegralCF]">
                   Sign Up Free
                 </button>
               </Link>

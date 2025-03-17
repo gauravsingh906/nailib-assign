@@ -535,7 +535,7 @@ export default function Footer() {
             </div>
             
             <div className="relative mb-6">
-              <p className="text-gray-300 text-lg relative z-10">
+              <p className="text-gray-300 font-['Open_Sans'] text-lg relative z-10">
                 Helping IB students excel with innovative study tools built by top IB graduates.
               </p>
               <div className="absolute -left-2 top-0 w-1 h-full bg-blue-500 rounded-full opacity-70"></div>
@@ -574,7 +574,7 @@ export default function Footer() {
                   <div className="absolute inset-0 h-full w-full bg-gradient-to-r from-blue-600 to-purple-700 transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-300 rounded-r-lg sm:rounded-l-none rounded-l-lg"></div>
                 </button>
               </form>
-              <p className="text-xs text-gray-400 mt-2">Join 250K+ students receiving weekly study tips</p>
+              <p className="text-xs text-gray-400 font-['Open_Sans'] mt-2">Join 250K+ students receiving weekly study tips</p>
             </div>
           </div>
 
@@ -639,7 +639,7 @@ export default function Footer() {
             
             </div>
             
-            {/* Quick Stats toggle button */}
+           
             <button 
               onClick={toggleQuickStats}
               className="mt-6 flex items-center text-sm text-gray-300 hover:text-white transition-colors group"
@@ -727,7 +727,7 @@ export default function Footer() {
             <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-1 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:scale-105 duration-300">
               <div className={`${darkMode ? 'bg-gray-900' : 'bg-gray-800'} rounded-lg p-4`}>
                 <h3 className="font-bold text-lg mb-3 text-white">Need Help?</h3>
-                <p className="text-gray-300 text-sm mb-4">Our support team is here to help you with any questions about our IB study resources.</p>
+                <p className="text-gray-300 font-['Open_Sans'] text-sm mb-4">Our support team is here to help you with any questions about our IB study resources.</p>
                 <button 
                   onClick={toggleChatbot}
                   className="w-full bg-gradient-to-r  from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white py-2 px-4 rounded-lg shadow-md hover:shadow-lg transition-all flex items-center justify-center group"
@@ -747,7 +747,7 @@ export default function Footer() {
                 <svg className="w-5 h-5 text-blue-400 mt-0.5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <div>
+                <div className="font-['Open_Sans']">
                   <p className="text-sm text-gray-300 font-medium">Support Hours</p>
                   <p className="text-xs text-gray-400">Monday-Friday: 9am-7pm (GMT)</p>
                   <p className="text-xs text-gray-400">Weekend: 10am-5pm (GMT)</p>
@@ -758,7 +758,7 @@ export default function Footer() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
                 <div>
-                  <p className="text-sm text-gray-300 font-medium">Email Us</p>
+                  <p className="text-sm text-gray-300 font-['Open_Sans'] font-medium">Email Us</p>
                   <a href="mailto:help@nailib.com" className="text-xs text-blue-400 hover:text-blue-300 transition-colors">help@nailib.com</a>
                 </div>
               </div>
@@ -795,7 +795,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                 </div>
-                <div className="bg-white rounded-lg p-2 shadow-sm max-w-xs">
+                <div className="bg-white rounded-lg p-2 shadow-sm font-['Open_Sans'] max-w-xs">
                   <p className="text-gray-800 text-sm">Hi there! 👋 How can I help you with your IB studies today?</p>
                   <p className="text-xs text-gray-500 mt-1">2:45 PM</p>
                 </div>
@@ -824,7 +824,7 @@ export default function Footer() {
           className={`mt-12 pt-8 border-t ${darkMode ? 'border-gray-800' : 'border-gray-700'} flex flex-col sm:flex-row justify-between items-center text-gray-400 text-sm transition-colors duration-300`}
         >
           <div className="mb-4 sm:mb-0">
-            <p>© {currentYear} NailIB Learning Platform. All rights reserved.</p>
+            <p className="font-['Open_Sans']">© {currentYear} NailIB Learning Platform. All rights reserved.</p>
           </div>
           <div className="flex space-x-4">
             <Link 
