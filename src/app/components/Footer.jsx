@@ -105,7 +105,7 @@ export default function Footer() {
 
   const scrollToTop = () => {
     gsap.to(window, { 
-      duration: 1, 
+      duration: 0, 
       scrollTo: { y: 0 }, 
       ease: "power2.inOut" 
     });
