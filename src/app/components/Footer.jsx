@@ -492,7 +492,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div ref={logoRef} className="mb-6 perspective">
               <Link href="/">
-                <div className="bg-white rounded-xl inline-flex items-center shadow-lg hover:shadow-xl transition-all transform hover:scale-105 hover:rotate-3 duration-300 relative">
+                <div className="bg-white rounded-xl  inline-flex items-center shadow-lg hover:shadow-xl transition-all transform hover:scale-105 hover:rotate-3 duration-300 relative">
                   <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 opacity-10 blur-md"></div>
                   <Image
                     alt="NailIB Logo"
@@ -678,7 +678,7 @@ export default function Footer() {
                         onMouseEnter={(e) => handleLinkHover(e, true)}
                         onMouseLeave={(e) => handleLinkHover(e, false)}
                       >
-                        <span className="absolute w-0 h-0.5 bg-blue-500 bottom-0 left-0 group-hover:w-full transition-all duration-300"></span>
+                        <span className="absolute w-0 h-0.5 no-underline bg-blue-500 bottom-0 left-0 group-hover:w-full transition-all duration-300"></span>
                         {link.name}
                         {link.new && (
                           <span className="ml-2 inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-gradient-to-r from-blue-500 to-purple-600 text-white">
@@ -800,7 +800,7 @@ export default function Footer() {
           <div className="flex space-x-4">
             <Link 
               href="/privacy"
-              className="hover:text-white transition-colors"
+              className="hover:text-white no-underline transition-colors"
               onMouseEnter={(e) => handleLinkHover(e, true)}
               onMouseLeave={(e) => handleLinkHover(e, false)}
             >
@@ -808,7 +808,7 @@ export default function Footer() {
             </Link>
             <Link 
               href="/terms"
-              className="hover:text-white transition-colors"
+              className="hover:text-white no-underline transition-colors"
               onMouseEnter={(e) => handleLinkHover(e, true)}
               onMouseLeave={(e) => handleLinkHover(e, false)}
             >
@@ -816,7 +816,7 @@ export default function Footer() {
             </Link>
             <Link 
               href="/cookies"
-              className="hover:text-white transition-colors"
+              className="hover:text-white no-underline transition-colors"
               onMouseEnter={(e) => handleLinkHover(e, true)}
               onMouseLeave={(e) => handleLinkHover(e, false)}
             >
@@ -824,7 +824,7 @@ export default function Footer() {
             </Link>
             <Link 
               href="/sitemap"
-              className="hover:text-white transition-colors"
+              className="hover:text-white no-underline transition-colors"
               onMouseEnter={(e) => handleLinkHover(e, true)}
               onMouseLeave={(e) => handleLinkHover(e, false)}
             >
