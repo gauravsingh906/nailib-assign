@@ -1,4 +1,4 @@
-// components/FeaturesSection.js
+
 import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';

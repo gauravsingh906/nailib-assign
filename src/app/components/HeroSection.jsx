@@ -1,10 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import TextPlugin from 'gsap/TextPlugin';
 import Image from 'next/image';
 import Link from 'next/link';
 
-// New gradient grid background component
+gsap.registerPlugin(TextPlugin);
+
+// AnimatedGridBackground component remains unchanged
 const AnimatedGridBackground = () => {
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30">
@@ -38,7 +41,80 @@ export default function HeroSection() {
   
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      gsap.registerPlugin(ScrollTrigger);
+      gsap.registerPlugin(ScrollTrigger, TextPlugin);
+      
+      // Add typing effect to title
+      const setupTypingEffect = () => {
+        const titleElement = titleRef.current;
+        if (!titleElement) return;
+        
+        const titleWords = titleElement.querySelectorAll('.title-word');
+        const phrases = [
+          { text: "Master ", el: titleWords[0] },
+          { text: "IB concepts", el: titleWords[1] },
+          { text: " with interactive video tutorials", el: titleWords[2] }
+        ];
+        
+        // Initially hide text content but keep spans (preserve their classes)
+        titleWords.forEach(span => {
+          // Store original text as data attribute
+          span.dataset.originalText = span.textContent;
+          span.textContent = '';
+        });
+        
+        // Create the typing timeline
+        const typingTl = gsap.timeline({
+          repeat: -1,
+          repeatDelay: 2,
+          onRepeat: () => {
+            // Ensure gradient animation continues to run
+            const gradientText = titleElement.querySelector('.gradient-text');
+            if (gradientText) {
+              gsap.fromTo(
+                gradientText,
+                { backgroundPosition: '0% 50%' },
+                {
+                  backgroundPosition: '100% 50%',
+                  duration: 6,
+                  repeat: -1,
+                  ease: "sine.inOut",
+                  yoyo: true
+                }
+              );
+            }
+          }
+        });
+        
+        // Initial appearance of spans with 3D perspective (similar to your existing animation)
+        typingTl.fromTo(titleWords, {
+          opacity: 0,
+          y: 40,
+          rotationX: -30,
+          transformOrigin: "0% 50% -50",
+          transformPerspective: 500
+        }, {
+          opacity: 1,
+          y: 0,
+          rotationX: 0,
+          duration: 1.2,
+          stagger: 0.1,
+          ease: "power3.out"
+        });
+        
+        // Type each phrase with appropriate timing
+        phrases.forEach((phrase, index) => {
+          typingTl.to(phrase.el, {
+            duration: phrase.text.length * 0.08,
+            text: phrase.text,
+            ease: "none"
+          }, "+=0.3"); // Small delay between each phrase
+        });
+        
+        // Pause to read complete sentence
+        typingTl.to({}, { duration: Infinity });
+        
+      
+      };
       
       // Enhanced particle system with depth and dimension
       const createParticles = () => {
@@ -97,6 +173,9 @@ export default function HeroSection() {
         // Master timeline for coordinated entry animations
         const masterTl = gsap.timeline();
         
+        // Setup typing effect
+        const typingTl = setupTypingEffect();
+        
         // Glowing orbs animation (new feature)
         const glowingOrbs = document.querySelectorAll('.glowing-orb');
         glowingOrbs.forEach((orb, index) => {
@@ -154,49 +233,6 @@ export default function HeroSection() {
             ease: "sine.inOut"
           });
         });
-        
-        // Improved title animation with 3D perspective
-        if (titleRef.current) {
-          const titleWords = titleRef.current.querySelectorAll('.title-word');
-          
-          gsap.set(titleWords, {
-            opacity: 0,
-            y: 40,
-            rotationX: -30,
-            transformOrigin: "0% 50% -50",
-            transformPerspective: 500
-          });
-          
-          masterTl.to(
-            titleWords, 
-            { 
-              opacity: 1,
-              y: 0,
-              rotationX: 0,
-              duration: 1.2,
-              stagger: 0.1,
-              ease: "power3.out"
-            },
-            0.4
-          );
-          
-          // Enhanced gradient text animation
-          const gradientText = document.querySelector('.gradient-text');
-          if (gradientText) {
-            masterTl.fromTo(
-              gradientText,
-              { backgroundPosition: '0% 50%' },
-              {
-                backgroundPosition: '100% 50%',
-                duration: 6,
-                repeat: -1,
-                ease: "sine.inOut",
-                yoyo: true
-              },
-              0.8
-            );
-          }
-        }
         
         // 3D floating card animation for video preview
         masterTl.fromTo(
@@ -298,7 +334,7 @@ export default function HeroSection() {
             ripple.style.width = '10px';
             ripple.style.height = '10px';
             
-            document.querySelector('.dot-pattern').appendChild(ripple);
+            document.querySelector('.dot-pattern')?.appendChild(ripple);
             
             gsap.to(ripple, {
               width: '200px',
@@ -365,6 +401,7 @@ export default function HeroSection() {
         
         return () => {
           window.removeEventListener('resize', handleResize);
+          typingTl.kill();
         };
       };
       
@@ -400,7 +437,7 @@ export default function HeroSection() {
       ref={heroRef} 
       className="relative bg-white text-gray-600 overflow-hidden min-h-screen"
     >
-      <AnimatedGridBackground></AnimatedGridBackground>
+      {/* <AnimatedGridBackground></AnimatedGridBackground> */}
       {/* Enhanced animated grid background */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full">
@@ -410,7 +447,6 @@ export default function HeroSection() {
             style={{
               backgroundImage: 'linear-gradient(to right,rgb(57, 96, 181) 1px, transparent 1px), linear-gradient(to bottom,rgb(47, 79, 150) 1px, transparent 1px)',
               backgroundSize: '50px 50px',
-              
             }}
           ></div>
           
@@ -452,6 +488,9 @@ export default function HeroSection() {
               <span className="title-word gradient-text bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-500 bg-size-200">IB concepts</span>
               <span className="title-word"> with interactive video tutorials</span>
             </h1>
+            
+   
+
             
             <div className="mb-8 space-y-4 text-lg text-gray-600">
               <p className="desc-line relative pl-6 before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-3 before:h-3 before:bg-blue-100 before:rounded-full">
