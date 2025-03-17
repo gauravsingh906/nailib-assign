@@ -525,10 +525,10 @@ export default function Footer() {
                 <div className="relative flex-grow">
                   <input
                     type="email"
-                    placeholder="Your email "
+                    placeholder=""
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="px-4 py-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 w-[11rem] md:w-full  border-2 border-transparent focus:border-blue-400 transition-colors pr-8"
+                    className="px-4 py-2  pl-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-800 w-[11rem] md:w-full  border-2 border-transparent focus:border-blue-400 overflow-hidden transition-colors pr-8"
                     required
                   />
                   <div className="absolute right-2 top-2.5 text-gray-400">
@@ -741,9 +741,9 @@ export default function Footer() {
         {showChatbot && (
           <div 
             ref={chatbotRef}
-            className="fixed bottom-20 right-4 w-80 sm:w-96 bg-white rounded-lg shadow-2xl overflow-hidden z-50"
+            className="fixed bottom-6 right-20 w-80  sm:w-96   bg-white rounded-lg shadow-2xl overflow-hidden z-50"
           >
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-3 text-white flex justify-between items-center">
+            <div className="bg-gradient-to-r from-blue-500 to-purple-600 p-2 text-white flex justify-between items-center">
               <div className="flex items-center">
                 <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
