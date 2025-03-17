@@ -1,81 +1,26 @@
-import React, { useState, useRef, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, CheckCircle, Play, Mouse, Volume2, VolumeX } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Play, CheckCircle, ChevronRight, ChevronLeft, Mouse, Volume2 } from 'lucide-react';
 
-const HowItWorksSection = () => {
+export default function HowItWorksSection() {
   const [activeStep, setActiveStep] = useState(0);
   const [isRotated, setIsRotated] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [audioEnabled, setAudioEnabled] = useState(false);
   const sectionRef = useRef(null);
   const carouselRef = useRef(null);
-  const audioRef = useRef(new Audio('/path-to-background-music.mp3')); // Replace with actual audio path
 
-  // Steps data
-  const steps = [
-    {
-      number: '01',
-      title: 'SIGN UP',
-      description: 'Create your account to begin your IB success journey',
-      icon: 'signup',
-      color: 'from-blue-500 to-indigo-600',
-      textColor: 'text-blue-600',
-      features: [
-        'Quick registration process',
-        'Secure account creation',
-        'Personalized dashboard'
-      ],
-    },
-    {
-      number: '02',
-      title: 'SELECT SUBJECTS',
-      description: 'Choose from our extensive library of IB subjects',
-      icon: 'subjects',
-      color: 'from-cyan-500 to-teal-500',
-      textColor: 'text-teal-600',
-      features: [
-        'All IB subjects covered',
-        'HL and SL materials',
-        'Curriculum-aligned content'
-      ],
-    },
-    {
-      number: '03',
-      title: 'WATCH & LEARN',
-      description: 'Engage with our interactive video lessons',
-      icon: 'watch',
-      color: 'from-indigo-500 to-purple-600',
-      textColor: 'text-indigo-600',
-      features: [
-        'Expert IB instructors',
-        'Concise explanations',
-        'Visual learning aids'
-      ],
-    },
-    {
-      number: '04',
-      title: 'PRACTICE & EXCEL',
-      description: 'Apply your knowledge with practice resources',
-      icon: 'practice',
-      color: 'from-amber-500 to-orange-600',
-      textColor: 'text-amber-600',
-      features: [
-        'Past exam questions',
-        'Personalized feedback',
-        'Progress tracking'
-      ],
-    }
-  ];
-
-  // Handle mouse movement
+  // Handle 3D rotation effect
   useEffect(() => {
     const handleMouseMove = (e) => {
       if (!sectionRef.current) return;
-      
+
       const rect = sectionRef.current.getBoundingClientRect();
-      const x = e.clientX - rect.left - rect.width / 2;
-      const y = e.clientY - rect.top - rect.height / 2;
-      
-      setMousePosition({ x, y });
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      setMousePosition({
+        x: ((x / rect.width) - 0.5) * 20,
+        y: ((y / rect.height) - 0.5) * 20
+      });
     };
 
     const section = sectionRef.current;
@@ -90,69 +35,67 @@ const HowItWorksSection = () => {
     };
   }, []);
 
-  // Handle audio toggle
+  // Carousel auto-rotation
   useEffect(() => {
-    const audio = audioRef.current;
-    
-    if (audioEnabled) {
-      audio.volume = 0.3;
-      audio.loop = true;
-      
-      // Play audio and handle any errors
-      const playPromise = audio.play();
-      
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          console.error("Audio playback prevented:", error);
-        });
+    const interval = setInterval(() => {
+      if (!isRotated) {
+        setActiveStep((prev) => (prev + 1) % steps.length);
       }
-    } else {
-      audio.pause();
-    }
-    
-    return () => {
-      audio.pause();
-    };
-  }, [audioEnabled]);
+    }, 5000);
 
-  // Handle navigation
+    return () => clearInterval(interval);
+  }, [isRotated]);
+
   const handleNextStep = () => {
     setActiveStep((prev) => (prev + 1) % steps.length);
-    
-    if (audioEnabled) {
-      playNavigationSound('/path-to-click-sound.mp3'); // Replace with actual sound path
-    }
   };
 
   const handlePrevStep = () => {
     setActiveStep((prev) => (prev - 1 + steps.length) % steps.length);
-    
-    if (audioEnabled) {
-      playNavigationSound('https://github.com/SergLam/Audio-Sample-files/raw/master/sample.mp3'); // Replace with actual sound path
-    }
   };
 
-  // Play navigation sound effect
-  const playNavigationSound = (soundPath) => {
-    const sound = new Audio(soundPath);
-    sound.volume = 0.5;
-    sound.play().catch(error => {
-      console.error("Navigation sound playback prevented:", error);
-    });
-  };
-
-  // Toggle 3D mode with audio feedback
-  const toggle3DMode = () => {
-    setIsRotated(!isRotated);
-    
-    if (audioEnabled) {
-      const toggleSound = new Audio('https://github.com/SergLam/Audio-Sample-files/raw/master/sample.mp3'); // Replace with actual sound path
-      toggleSound.volume = 0.4;
-      toggleSound.play().catch(error => {
-        console.error("Toggle sound playback prevented:", error);
-      });
+  const steps = [
+    {
+      number: "01",
+      title: "Sign Up For Free",
+      description: "Create your Nailib account in less than 30 seconds with just your email. No credit card required.",
+      features: ["Instant access", "Social login options", "Personalized dashboard"],
+      color: "from-blue-500 to-indigo-600",
+      textColor: "text-blue-700",
+      icon: "signup",
+      animation: "float"
+    },
+    {
+      number: "02",
+      title: "Select Your IB Subjects",
+      description: "Choose from our library of 20+ IB subjects with comprehensive video coverage of all topics.",
+      features: ["Filter by HL/SL", "Topic categorization", "Teacher recommendations"],
+      color: "from-cyan-500 to-blue-600",
+      textColor: "text-cyan-700",
+      icon: "subjects",
+      animation: "pulse"
+    },
+    {
+      number: "03",
+      title: "Watch Interactive Videos",
+      description: "Immerse yourself in crystal-clear HD videos with interactive elements to enhance your learning.",
+      features: ["Smart player", "Interactive timestamps", "Quiz integration"],
+      color: "from-teal-500 to-emerald-600",
+      textColor: "text-teal-700",
+      icon: "watch",
+      animation: "bounce"
+    },
+    {
+      number: "04",
+      title: "Track Your Mastery",
+      description: "Monitor your progress with detailed analytics that help you focus on areas needing improvement.",
+      features: ["Visual progress tracking", "Personalized insights", "Study recommendations"],
+      color: "from-amber-500 to-orange-600",
+      textColor: "text-amber-700",
+      icon: "practice",
+      animation: "spin"
     }
-  };
+  ];
 
   return (
     <section
@@ -162,7 +105,7 @@ const HowItWorksSection = () => {
         perspective: '1000px'
       }}
     >
-      {/* Background elements */}
+   
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-0 w-full h-full">
           {/* Animated grid */}
@@ -194,17 +137,9 @@ const HowItWorksSection = () => {
 
       {/* Audio Toggle */}
       <div className="absolute top-10 right-10 z-10">
-        <button 
-          onClick={() => setAudioEnabled(!audioEnabled)}
-          className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-blue-200 shadow-md hover:border-blue-300 transition-all cursor-pointer"
-          aria-label={audioEnabled ? "Disable audio" : "Enable audio"}
-        >
-          {audioEnabled ? (
-            <Volume2 className="w-5 h-5 text-blue-500" />
-          ) : (
-            <VolumeX className="w-5 h-5 text-blue-500" />
-          )}
-        </button>
+        <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center border border-blue-200 shadow-md hover:border-blue-300 transition-all cursor-pointer">
+          <Volume2 className="w-5 h-5 text-blue-500" />
+        </div>
       </div>
 
       <div
@@ -237,7 +172,7 @@ const HowItWorksSection = () => {
         {/* 3D Carousel Mode Button */}
         <div className="flex justify-center mb-8">
           <button
-            onClick={toggle3DMode}
+            onClick={() => setIsRotated(!isRotated)}
             className={`px-4 py-2 rounded-full flex items-center text-sm font-[Open_Sans] font-medium transition-all duration-300 ${isRotated ? 'bg-gradient-to-r from-blue-500 to-indigo-600 text-white' : 'bg-white text-gray-700 border border-blue-200 shadow-md'}`}
           >
             {isRotated ? 'Disable 3D Mode' : 'Enable 3D Mode'}
@@ -253,7 +188,6 @@ const HowItWorksSection = () => {
             <button
               onClick={handlePrevStep}
               className="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-blue-200 shadow-lg hover:border-blue-300 transition-all"
-              aria-label="Previous slide"
             >
               <ChevronLeft className="w-6 h-6 text-blue-600" />
             </button>
@@ -263,7 +197,6 @@ const HowItWorksSection = () => {
             <button
               onClick={handleNextStep}
               className="w-12 h-12 bg-white/90 backdrop-blur-md rounded-full flex items-center justify-center border border-blue-200 shadow-lg hover:border-blue-300 transition-all"
-              aria-label="Next slide"
             >
               <ChevronRight className="w-6 h-6 text-blue-600" />
             </button>
@@ -274,18 +207,11 @@ const HowItWorksSection = () => {
             {steps.map((_, index) => (
               <button
                 key={index}
-                onClick={() => {
-                  setActiveStep(index);
-                  if (audioEnabled) {
-                    playNavigationSound('https://github.com/SergLam/Audio-Sample-files/raw/master/sample.mp3'); // Replace with actual sound path
-                  }
-                }}
+                onClick={() => setActiveStep(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${activeStep === index
                     ? 'bg-gradient-to-r from-blue-500 to-indigo-600 w-10'
                     : 'bg-gray-300 hover:bg-gray-400'
                   }`}
-                aria-label={`Go to step ${index + 1}`}
-                aria-current={activeStep === index ? "true" : "false"}
               />
             ))}
           </div>
@@ -509,5 +435,3 @@ const HowItWorksSection = () => {
     </section>
   );
 }
-
-export default HowItWorksSection;
