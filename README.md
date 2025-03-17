@@ -7,7 +7,7 @@ NailIB is a premium educational platform providing International Baccalaureate (
 - **Framework**: Next.js
 - **Styling**: Tailwind CSS
 - **Animations**: GSAP with ScrollTrigger
-- **Fonts**: IntegralCF (primary), Geist Sans & Geist Mono (secondary)
+- **Fonts**: IntegralCF (primary), Open_sans (secondary)
 - **Client-side Rendering**: Optimized with 'use client' directive
 
 ## Project Structure

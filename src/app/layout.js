@@ -37,7 +37,7 @@ export default function RootLayout({ children }) {
   return (
     <html 
       lang="en" 
-      className={`${geistSans.variable} ${geistMono.variable}`}
+      className= "font-['Open_Sans']"
     >
       <head>
         <link rel="icon" href="https://cdn.nailib.com/_next/static/media/logo-small.5691114d.svg?w=256&q=75" sizes="any" />
